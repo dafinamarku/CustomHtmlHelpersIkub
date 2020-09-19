@@ -1,0 +1,29 @@
+﻿
+@model IEnumerable<CustomHtmlHelpers.Models.StudentClass>
+@{
+    ViewBag.Title = "Classes";
+}
+
+<h2>Classes</h2>
+<table class="table">
+  <tr>
+    <th>@Html.DisplayNameFor(m=>m.id)</th>
+    <th>@Html.DisplayNameFor(m => m.name)</th>
+    <th>Details</th>
+  </tr>
+  @foreach (var item in Model)
+  {
+  <tr>
+    <td>@Html.DisplayFor(m => item.id)</td>
+    <td>@Html.DisplayFor(m => item.name)</td>
+    <td>
+      @Html.ActionLink(item.name, "Details", new { @id = item.id })
+    </td>
+    
+  </tr>
+    
+
+
+  }
+</table>
+

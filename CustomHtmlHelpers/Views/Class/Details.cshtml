@@ -1,0 +1,29 @@
+﻿
+@model CustomHtmlHelpers.Models.StudentClass
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details of @Html.DisplayFor(model=>model.name)</h2>
+<h3>List of students</h3>
+@{ 
+  IEnumerable<CustomHtmlHelpers.Models.Student> students=Model.students.OrderBy(s => s.name);
+}
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>Email</th>
+  </tr>
+  @foreach(var item in students)
+  {
+    <tr>
+      <td>@Html.DisplayFor(t => item.name)</td>
+      <td>@Html.DisplayFor(t => item.age)</td>
+      <td>@Html.DisplayFor(t => item.gender)</td>
+      <td>@Html.DisplayFor(t => item.email)</td>
+    </tr>
+  }
+</table>
+
